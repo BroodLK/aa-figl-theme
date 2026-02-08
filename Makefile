@@ -1,5 +1,5 @@
-appname = example
-package = example
+appname = aa-figl-theme
+package = figl_theme
 
 # Default goal
 .DEFAULT_GOAL := help

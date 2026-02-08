@@ -11,9 +11,9 @@ logger = logging.getLogger(__name__)
 # Create your tasks here
 
 
-# Example Task
+# Figl Theme Task
 @shared_task
-def example_task():
-    """Example Task"""
+def figl_theme_task():
+    """Figl Theme Task"""
 
     pass

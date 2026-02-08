@@ -10,7 +10,9 @@ Test settings
 
 from .base import *
 
-PACKAGE = "example"
+PACKAGE = "figl_theme"
+DEFAULT_THEME = "figl_theme.auth_hooks.FiglThemeHook"
+DEFAULT_THEME_DARK = DEFAULT_THEME
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
@@ -64,6 +66,8 @@ NOTIFICATIONS_MAX_PER_USER = 50
 INSTALLED_APPS += [
     PACKAGE,
 ]
+
+TEMPLATES[0]["DIRS"].insert(0, os.path.join(BASE_DIR, "figl_theme", "templates"))
 
 # By default, apps are prevented from having public views for security reasons.
 # If you want to allow specific apps to have public views,

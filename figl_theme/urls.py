@@ -3,10 +3,10 @@
 # Django
 from django.urls import path
 
-# AA Example App
-from example import views
+# AA Figl Theme
+from figl_theme import views
 
-app_name: str = "example"  # pylint: disable=invalid-name
+app_name: str = "figl_theme"  # pylint: disable=invalid-name
 
 urlpatterns = [
     path("", views.index, name="index"),

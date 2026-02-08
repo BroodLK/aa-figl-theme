@@ -5,12 +5,12 @@ requires = [
 ]
 
 [project]
-name = "aa-example-plugin"
-description = "Example Plugin for Alliance Auth (GitHub Version)"
+name = "aa-figl-theme"
+description = "Figl Theme for Alliance Auth (GitHub Version)"
 readme = "README.md"
 keywords = [
     "allianceauth",
-    "example",
+    "figl-theme",
 ]
 license = { file = "LICENSE" }
 authors = [
@@ -39,12 +39,12 @@ dynamic = [
 dependencies = [
     "allianceauth>=4.3.1,<5",
 ]
-urls.Changelog = "https://github.com/ppfeufer/aa-example-plugin/blob/master/CHANGELOG.md"
-urls.Tracker = "https://github.com/ppfeufer/aa-example-plugin/issues"
+urls.Changelog = "https://github.com/ppfeufer/aa-figl-theme/blob/master/CHANGELOG.md"
+urls.Tracker = "https://github.com/ppfeufer/aa-figl-theme/issues"
 
 [tool.hatch.build]
 include = [
-    "/example",
+    "/figl_theme",
 ]
 [tool.hatch.version]
-path = "example/__init__.py"
+path = "figl_theme/__init__.py"

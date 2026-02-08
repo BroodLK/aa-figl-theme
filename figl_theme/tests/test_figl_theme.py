@@ -1,14 +1,14 @@
 """
-Example Test
+Figl Theme Test
 """
 
 # Django
 from django.test import TestCase
 
 
-class TestExample(TestCase):
+class TestFiglTheme(TestCase):
     """
-    TestExample
+    TestFiglTheme
     """
 
     @classmethod
@@ -21,7 +21,7 @@ class TestExample(TestCase):
 
         super().setUpClass()
 
-    def test_example(self):
+    def test_figl_theme(self):
         """
         Dummy test function
         :return:
