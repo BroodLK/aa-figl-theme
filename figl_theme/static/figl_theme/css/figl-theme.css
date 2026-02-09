@@ -420,15 +420,6 @@ html[data-theme="figl-theme"] .alert {
 
 @media (max-width: 768px) {
   html[data-theme="figl-theme"] .figl-info-header {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-    text-align: center;
-    font-size: 0.7rem;
-  }
-
-  html[data-theme="figl-theme"] .figl-info-header > div:nth-child(1),
-  html[data-theme="figl-theme"] .figl-info-header > div:nth-child(2),
-  html[data-theme="figl-theme"] .figl-info-header > div:nth-child(3) {
-    justify-self: center;
+    display: none;
   }
 }
