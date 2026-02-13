@@ -367,6 +367,17 @@ html[data-theme="figl-theme"] .navbar .navbar-brand {
 html[data-theme="figl-theme"] .navbar .navbar-brand[data-bs-toggle] {
   color: #ffffff;
   text-shadow: none;
+  position: relative;
+}
+
+html[data-theme="figl-theme"] .navbar .navbar-brand[data-bs-toggle] .badge {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  padding: 0.25em 0.4em;
+  font-size: 0.6rem;
+  border: 2px solid var(--figl-nav-bg);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 html[data-theme="figl-theme"] .navbar .nav-link {
