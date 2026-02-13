@@ -1,4 +1,4 @@
-8{% extends "fittings/base.html" %}
+{% extends "fittings/base.html" %}
 
 {% load aa_i18n %}
 {% load i18n %}
@@ -7,16 +7,6 @@
 {% load evelinks %}
 
 {% block page_title %}{% translate "Doctrine List" %}{% endblock %}
-
-{% block extra_css %}
-    <style>
-        #docTable th.figl-ships-col,
-        #docTable td.figl-ships-col {
-            width: 15%;
-            min-width: 15%;
-        }
-    </style>
-{% endblock %}
 
 {% block fittings_block %}
     {% if msg %}
@@ -53,39 +43,21 @@
     {% include 'bundles/datatables-js-bs5.html' %}
 
     {% get_datatables_language_static LANGUAGE_CODE as DT_LANG_PATH %}
-    {% translate "Ships" as ships_label %}
-    {% translate "All" as all_label %}
 
     <script>
         $(document).ready(() => {
             {% if docs %}
                 const doctrineTable = $('#docTable');
-                const shipsHeader = "{{ ships_label|escapejs }}";
-                const headerCells = doctrineTable.find('thead th');
-                const shipsIndex = headerCells.toArray().findIndex((th) => {
-                    const headerText = $(th).text().trim().toLowerCase();
-                    return headerText.includes(shipsHeader.toLowerCase());
-                });
-                const columnDefs = [];
-
-                if (shipsIndex >= 0) {
-                    $(headerCells[shipsIndex]).addClass('figl-ships-col');
-                    columnDefs.push({
-                        targets: shipsIndex,
-                        width: "15%",
-                        className: "figl-ships-col"
-                    });
-                }
 
                 doctrineTable.DataTable({
+                    autoWidth: false,
                     language: {
                         url: '{{ DT_LANG_PATH }}'
                     },
                     order: [[ 0, "asc" ]],
-                    pageLength: 100,
-                    lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "{{ all_label|escapejs }}"]],
-                    autoWidth: false,
-                    columnDefs: columnDefs,
+                    columnDefs: [
+                        { "width": "50%", "targets": 2 }
+                    ],
                     initComplete: () => {
                         // Initialize tooltips
                         $('[data-bs-tooltip="aa-fittings"]').tooltip();

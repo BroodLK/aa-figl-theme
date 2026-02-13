@@ -34,10 +34,6 @@
                     max-height: calc(100vh - {% header_padding_size %}) !important;
                 }
             }
-
-            .figl-only {
-                display: none;
-            }
         </style>
 
         {% block extra_css %}{% endblock extra_css %}
@@ -47,13 +43,11 @@
 
     <body>
         <!-- Top Menu, Blocks don't work in "include" tagged views -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-bg-primary figl-navbar">
-            <div class="figl-info-header figl-only">
-                <div>EVE TIME: <span id="figl-eve-time" class="figl-eve-time">--:--:-- GMT</span></div>
-                <div>
-                    <a href="https://zkillboard.com/alliance/99009902/" target="_blank" rel="noopener noreferrer">KILLBOARD</a>
-                </div>
-                <div>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-bg-primary figl-navbar p-0 flex-column">
+            <div class="figl-info-header w-100 d-flex align-items-center gap-4">
+                <div class="figl-info-clock">EVE TIME: <span id="figl-eve-time" class="figl-eve-time">--:--:-- GMT</span></div>
+                <div class="figl-info-links">
+                    <a href="https://zkillboard.com/alliance/99009902/" target="_blank" rel="noopener noreferrer">KillBoard</a>
                     <a
                         href="https://evemaps.dotlan.net/alliance/Flying%20Dangerous"
                         target="_blank"
@@ -61,9 +55,16 @@
                     >
                         Dotlan
                     </a>
+                    <a
+                        href="https://flying-dangerous-shop.fourthwall.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Merch Store
+                    </a>
                 </div>
             </div>
-            <div class="container-fluid justify-content-start">
+            <div class="container-fluid justify-content-start py-1">
                 <a class="navbar-brand" data-bs-toggle="collapse" data-bs-target="#sidebar" role="button">
                     <i class="fa-solid fa-bars ms-2 me-2"></i>
                 </a>

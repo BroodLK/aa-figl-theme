@@ -28,7 +28,7 @@ class FiglThemeHook(ThemeHook):
             css_template="figl_theme/theme_css.html",
             js_template="figl_theme/theme_js.html",
             html_tags={"data-theme": "figl-theme", "data-bs-theme": "dark"},
-            header_padding="6em",
+            header_padding="5.5em",
         )
 
 
