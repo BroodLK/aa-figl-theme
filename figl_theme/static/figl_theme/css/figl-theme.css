@@ -573,11 +573,11 @@ html[data-theme="figl-theme"] .alert {
 }
 
 html[data-theme="figl-theme"] .modal {
-  z-index: 2000;
+  z-index: 5000 !important;
 }
 
 html[data-theme="figl-theme"] .modal-backdrop {
-  z-index: 1990;
+  z-index: 4990 !important;
 }
 
 html[data-theme="figl-theme"] .btn-close {
