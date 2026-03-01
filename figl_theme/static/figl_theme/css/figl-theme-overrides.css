@@ -3521,8 +3521,31 @@ html[data-theme="figl-theme"] .token-section-heading {
 /* Token expiry notice */
 html[data-theme="figl-theme"] .token-expiry-notice {
   background: rgba(var(--bs-warning-rgb), 0.12);
-      border-color: rgba(var(--bs-warning-rgb), 0.25);
-      color: rgba(var(--bs-warning-rgb), 0.9);
+  border-color: rgba(var(--bs-warning-rgb), 0.25);
+  color: rgba(var(--bs-warning-rgb), 0.9);
+}
+
+/* Custom Figl tweaks for Indy Hub index (contrast between container and rows). */
+html[data-theme="figl-theme"] .share-metric {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--bs-primary-rgb), 0.08),
+    rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.85)
+  );
+  border-color: rgba(var(--bs-primary-rgb), 0.35);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="figl-theme"] .share-metric:hover,
+html[data-theme="figl-theme"] a.share-metric:focus-visible {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--bs-primary-rgb), 0.16),
+    rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.92)
+  );
+  border-color: rgba(var(--bs-primary-rgb), 0.55);
 }
 
 /* Source: material_exchange_config.css */
