@@ -3731,6 +3731,16 @@ html[data-theme="figl-theme"] .slot-overview-table tr.table-light .text-muted {
   color: rgba(var(--bs-light-rgb), 0.72) !important;
 }
 
+/* Outline-light buttons: keep contrast on hover (e.g., Back to Overview). */
+html[data-theme="figl-theme"] .btn.btn-outline-light:hover,
+html[data-theme="figl-theme"] .btn.btn-outline-light:focus,
+html[data-theme="figl-theme"] .btn.btn-outline-light:focus-visible {
+  background: rgba(var(--bs-primary-rgb), 0.18);
+  border-color: rgba(var(--bs-primary-rgb), 0.55);
+  color: var(--bs-light) !important;
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.18);
+}
+
 /* Source: material_exchange_config.css */
 html[data-theme="figl-theme"] .me-config {
   /* Dark theme surfaces */
