@@ -1,4 +1,4 @@
-html[data-theme="figl-theme"] {
+﻿html[data-theme="figl-theme"] {
   --figl-teal-accent: #359b92;
   --figl-teal-glow: rgba(var(--bs-primary-rgb), 0.3);
   --figl-bg-dark: #000000;
