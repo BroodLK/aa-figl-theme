@@ -3741,6 +3741,59 @@ html[data-theme="figl-theme"] .btn.btn-outline-light:focus-visible {
   box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.18);
 }
 
+/* Craft BP v2: reduce washed-out light surfaces. */
+html[data-theme="figl-theme"] .craft-bp-surface,
+html[data-theme="figl-theme"] .craft-section,
+html[data-theme="figl-theme"] .craft-financial-hero,
+html[data-theme="figl-theme"] .craft-progress-section,
+html[data-theme="figl-theme"] .craft-bulk-group,
+html[data-theme="figl-theme"] .craft-stat-card,
+html[data-theme="figl-theme"] .craft-kpi {
+  background: rgba(48, 48, 48, 0.9);
+  border-color: rgba(148, 163, 184, 0.28);
+  color: var(--bs-body-color);
+}
+
+html[data-theme="figl-theme"] .craft-financial-table,
+html[data-theme="figl-theme"] .craft-needed-table {
+  background: rgba(48, 48, 48, 0.92);
+  border-color: rgba(148, 163, 184, 0.28);
+}
+
+html[data-theme="figl-theme"] .craft-financial-table thead th,
+html[data-theme="figl-theme"] .craft-needed-table thead th,
+html[data-theme="figl-theme"] #tab-financial .table thead th {
+  background: rgba(55, 65, 81, 0.9) !important;
+  color: rgba(var(--bs-light-rgb), 0.9) !important;
+  border-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+html[data-theme="figl-theme"] .craft-financial-table tbody td,
+html[data-theme="figl-theme"] .craft-needed-table tbody td,
+html[data-theme="figl-theme"] #tab-financial .table tbody td {
+  background: rgba(48, 48, 48, 0.88);
+  color: var(--bs-body-color);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+html[data-theme="figl-theme"] .craft-financial-table input,
+html[data-theme="figl-theme"] .craft-needed-table input,
+html[data-theme="figl-theme"] .craft-financial-table .form-control,
+html[data-theme="figl-theme"] .craft-needed-table .form-control {
+  background: rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.88);
+  border-color: rgba(148, 163, 184, 0.35);
+  color: var(--bs-body-color);
+}
+
+/* Tinted summary rows inside craft tables */
+html[data-theme="figl-theme"] .craft-bp-surface .table-success,
+html[data-theme="figl-theme"] .craft-bp-surface .table-info,
+html[data-theme="figl-theme"] .craft-bp-surface .table-warning,
+html[data-theme="figl-theme"] .craft-bp-surface .table-danger {
+  color: var(--bs-body-color) !important;
+  background: rgba(55, 65, 81, 0.7) !important;
+}
+
 /* Source: material_exchange_config.css */
 html[data-theme="figl-theme"] .me-config {
   /* Dark theme surfaces */
