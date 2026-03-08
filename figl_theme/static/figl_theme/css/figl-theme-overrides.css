@@ -2991,14 +2991,14 @@ html[data-theme="figl-theme"] {
       --indy-toggle-handle: rgba(var(--bs-light-rgb), 0.95);
       --indy-toggle-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
       --indy-hero-outline-bg: rgba(var(--bs-light-rgb), 0.08);
-  
+
       /* Adaptive color overrides for dark mode */
       --indy-text-primary: #f8f9fa;
       --indy-text-secondary: #adb5bd;
       --indy-text-muted: #adb5bd;
       --indy-bg-light: #303030;
       --indy-border-light: #495057;
-  
+
       /* Keep emphasis/headings readable in dark mode */
       --bs-emphasis-color: var(--bs-body-color);
       --bs-heading-color: var(--bs-body-color);
@@ -3865,6 +3865,169 @@ html[data-theme="figl-theme"] .me-config .me-pill-success {
   background-color: rgba(255, 255, 255, 0.06);
       border-color: rgba(255, 255, 255, 0.12);
       color: rgba(255, 255, 255, 0.85);
+}
+
+/* Global focus-card behavior for figl-theme (works on .card and non-.card wrappers). */
+html[data-theme="figl-theme"] .focus-card,
+html[data-theme="figl-theme"] .card.focus-card,
+html[data-theme="figl-theme"] .accordion-item.focus-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.88),
+    rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.78)
+  ) !important;
+  border: 1px solid rgba(var(--bs-light-rgb, 248, 249, 250), 0.18) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.30);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+html[data-theme="figl-theme"] .focus-card::before,
+html[data-theme="figl-theme"] .card.focus-card::before,
+html[data-theme="figl-theme"] .accordion-item.focus-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    rgba(var(--bs-primary-rgb, 13, 110, 253), 0.12) 0%,
+    rgba(var(--bs-primary-rgb, 13, 110, 253), 0.03) 35%,
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+html[data-theme="figl-theme"] .focus-card:hover,
+html[data-theme="figl-theme"] .card.focus-card:hover,
+html[data-theme="figl-theme"] .accordion-item.focus-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.34) !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="figl-theme"] .focus-card:hover::before,
+html[data-theme="figl-theme"] .card.focus-card:hover::before,
+html[data-theme="figl-theme"] .accordion-item.focus-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   FIGL THEME COHESION LAYER
+   Purpose:
+   - Bring generated overrides back in line with base darkly feel.
+   - Improve global surface contrast/readability consistency.
+   - Fix ME config card separation and primary-on-primary accents.
+   ============================================================ */
+
+html[data-theme="figl-theme"] {
+  --ih-surface-1: rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.74);
+  --ih-surface-2: rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.86);
+  --ih-surface-3: rgba(var(--bs-body-bg-rgb, 15, 23, 42), 0.94);
+  --ih-border-soft: rgba(var(--bs-light-rgb, 248, 249, 250), 0.12);
+  --ih-border-strong: rgba(var(--bs-light-rgb, 248, 249, 250), 0.20);
+  --ih-shadow-1: 0 10px 24px rgba(0, 0, 0, 0.30);
+  --ih-shadow-2: 0 14px 30px rgba(0, 0, 0, 0.38);
+  --ih-focus-ring: 0 0 0 0.2rem rgba(var(--bs-primary-rgb, 13, 110, 253), 0.18);
+}
+
+/* Normalize utility backgrounds so "subtle" surfaces are distinct levels, not one flat tone. */
+html[data-theme="figl-theme"] .bg-body-tertiary {
+  background-color: var(--ih-surface-1) !important;
+}
+html[data-theme="figl-theme"] .bg-body-secondary {
+  background-color: var(--ih-surface-2) !important;
+}
+html[data-theme="figl-theme"] .bg-light,
+html[data-theme="figl-theme"] .bg-white {
+  background-color: var(--ih-surface-3) !important;
+}
+html[data-theme="figl-theme"] [class*="subtle"] {
+  background-color: var(--ih-surface-2) !important;
+}
+
+/* Global surface rhythm for cards/panels/forms. */
+html[data-theme="figl-theme"] .card {
+  background: var(--ih-surface-2);
+  border-color: var(--ih-border-soft);
+  box-shadow: var(--ih-shadow-1);
+}
+html[data-theme="figl-theme"] .card .card-header {
+  background: var(--ih-surface-1);
+  border-bottom-color: var(--ih-border-soft);
+}
+html[data-theme="figl-theme"] .table,
+html[data-theme="figl-theme"] .list-group-item {
+  border-color: var(--ih-border-soft);
+}
+
+html[data-theme="figl-theme"] .form-control,
+html[data-theme="figl-theme"] .form-select {
+  background-color: var(--ih-surface-3);
+  border-color: var(--ih-border-soft);
+  color: var(--bs-body-color);
+}
+html[data-theme="figl-theme"] .form-control:focus,
+html[data-theme="figl-theme"] .form-select:focus {
+  background-color: var(--ih-surface-3);
+  border-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.48);
+  box-shadow: var(--ih-focus-ring);
+  color: var(--bs-body-color);
+}
+
+/* Keep page headers aligned with base theme look (clean surface + readable fg). */
+html[data-theme="figl-theme"] .page-header.page-header--surface {
+  background: var(--ih-surface-2);
+  border: 1px solid var(--ih-border-soft);
+  box-shadow: var(--ih-shadow-1);
+}
+
+/* Material Exchange config: stronger hierarchy between page, focus cards, and step cards. */
+html[data-theme="figl-theme"] .me-config {
+  --me-bg: linear-gradient(180deg, #1f242c 0%, #1a1f26 100%);
+  --me-card-bg: rgba(23, 28, 36, 0.78);
+  --me-card-bg-strong: rgba(33, 39, 49, 0.92);
+  --me-border: rgba(255, 255, 255, 0.10);
+  --me-border-strong: rgba(255, 255, 255, 0.18);
+  --me-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+}
+
+html[data-theme="figl-theme"] .me-config .card.focus-card {
+  background: var(--me-card-bg) !important;
+  border-color: var(--me-border-strong) !important;
+  box-shadow: var(--me-shadow);
+}
+
+html[data-theme="figl-theme"] .me-config .me-step-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    ),
+    var(--me-card-bg-strong) !important;
+  border-color: rgba(255, 255, 255, 0.24) !important;
+}
+
+html[data-theme="figl-theme"] .me-config .me-step-card:hover {
+  border-color: rgba(var(--bs-info-rgb, 13, 202, 240), 0.42) !important;
+  box-shadow: var(--ih-shadow-2);
+}
+
+/* Remove primary-on-primary feel in step chips. */
+html[data-theme="figl-theme"] .me-config .me-step-badge,
+html[data-theme="figl-theme"] .me-config .me-step-badge.bg-secondary {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html[data-theme="figl-theme"] .me-config .me-steps-header {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 0.65rem;
 }
 html[data-theme="figl-theme"] .me-config .me-dual-list-select option:hover {
   background-color: rgba(255, 255, 255, 0.08);
