@@ -14,9 +14,9 @@ keywords = [
 ]
 license = { file = "LICENSE" }
 authors = [
-    { name = "Peter Pfeufer", email = "develop@ppfeufer.de" },
+    { name = "BioBrute", email = "BroodLK@Gmail.com" },
 ]
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.10"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -37,10 +37,10 @@ dynamic = [
     "version",
 ]
 dependencies = [
-    "allianceauth>=4.3.1,<5",
+    "allianceauth>=4.3.1",
 ]
-urls.Changelog = "https://github.com/ppfeufer/aa-figl-theme/blob/master/CHANGELOG.md"
-urls.Tracker = "https://github.com/ppfeufer/aa-figl-theme/issues"
+urls.Changelog = "https://github.com/broodlk/aa-figl-theme/blob/master/CHANGELOG.md"
+urls.Tracker = "https://github.com/broodlk/aa-figl-theme/issues"
 
 [tool.hatch.build]
 include = [

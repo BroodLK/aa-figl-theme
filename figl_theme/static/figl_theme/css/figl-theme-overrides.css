@@ -3867,6 +3867,39 @@ html[data-theme="figl-theme"] .me-config .me-pill-success {
       color: rgba(255, 255, 255, 0.85);
 }
 
+/* FIGL top-bar and sidebar parity with darkly-bs5 preview */
+html[data-theme="figl-theme"] .figl-info-header {
+  position: relative;
+}
+
+html[data-theme="figl-theme"] .figl-info-clock {
+  left: 5%;
+  margin-right: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+html[data-theme="figl-theme"] .figl-info-links {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+html[data-theme="figl-theme"] .nav-padding.text-bg-dark,
+html[data-theme="figl-theme"] #sidebar .text-bg-dark {
+  border-right: 1px solid var(--figl-border) !important;
+}
+
+@media (max-width: 991.98px) {
+  html[data-theme="figl-theme"] .figl-info-clock {
+    left: auto;
+    position: static;
+    top: auto;
+    transform: none;
+  }
+}
+
 /* Global focus-card behavior for figl-theme (works on .card and non-.card wrappers). */
 html[data-theme="figl-theme"] .focus-card,
 html[data-theme="figl-theme"] .card.focus-card,
@@ -4037,4 +4070,300 @@ html[data-theme="figl-theme"] .me-config .me-pill-success {
   background-color: rgba(255, 255, 255, 0.06);
       border-color: rgba(255, 255, 255, 0.12);
       color: rgba(255, 255, 255, 0.85);
+}
+
+/* Final darkly-bs5-figl hole-filling layer.
+   Keep darkly-bs5-figl.css authoritative for the base theme and only
+   bridge app-specific selectors that it does not style directly. */
+html[data-theme="figl-theme"] .bg-body-tertiary,
+html[data-theme="figl-theme"] .bg-body-secondary {
+  background-color: var(--figl-slate-bg-elev) !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .bg-light,
+html[data-theme="figl-theme"] .bg-white,
+html[data-theme="figl-theme"] .bg-body,
+html[data-theme="figl-theme"] [class*="subtle"] {
+  background-color: var(--figl-slate-bg-soft) !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .card,
+html[data-theme="figl-theme"] .dropdown-menu,
+html[data-theme="figl-theme"] .modal-content,
+html[data-theme="figl-theme"] .offcanvas,
+html[data-theme="figl-theme"] .accordion-item,
+html[data-theme="figl-theme"] .list-group-item,
+html[data-theme="figl-theme"] .table,
+html[data-theme="figl-theme"] .orders-panel,
+html[data-theme="figl-theme"] .order-progress-modern .step,
+html[data-theme="figl-theme"] .bp-request-card__avatar,
+html[data-theme="figl-theme"] .bp-request-card__meta-entry,
+html[data-theme="figl-theme"] .bp-request-card__metrics-panel,
+html[data-theme="figl-theme"] .bp-request-card__metric,
+html[data-theme="figl-theme"] .me-config .me-example-box,
+html[data-theme="figl-theme"] .me-config .me-dual-list,
+html[data-theme="figl-theme"] .me-config .me-step-card {
+  background-color: var(--figl-slate-bg-elev) !important;
+  border-color: var(--figl-slate-border) !important;
+  box-shadow: none !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .card .card-header,
+html[data-theme="figl-theme"] .page-header.page-header--surface,
+html[data-theme="figl-theme"] .modal-header,
+html[data-theme="figl-theme"] .modal-footer,
+html[data-theme="figl-theme"] .accordion-button,
+html[data-theme="figl-theme"] .me-config .me-steps-header {
+  background-color: var(--figl-slate-bg-soft) !important;
+  border-color: var(--figl-slate-border) !important;
+  color: #e9eef5 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="figl-theme"] .table > :not(caption) > * > *,
+html[data-theme="figl-theme"] .bp-request-card__meta-item--corp,
+html[data-theme="figl-theme"] .bp-request-card__eligible,
+html[data-theme="figl-theme"] .order-notes-card {
+  border-color: rgba(47, 61, 77, 0.7) !important;
+}
+
+html[data-theme="figl-theme"] .form-control,
+html[data-theme="figl-theme"] .form-select,
+html[data-theme="figl-theme"] .input-group-text {
+  background-color: #0f151d !important;
+  border-color: #2a3745 !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .form-control:focus,
+html[data-theme="figl-theme"] .form-select:focus {
+  background-color: #0f151d !important;
+  border-color: var(--figl-teal) !important;
+  box-shadow: 0 0 0 0.2rem rgba(53, 155, 146, 0.2) !important;
+}
+
+html[data-theme="figl-theme"] .focus-card,
+html[data-theme="figl-theme"] .card.focus-card,
+html[data-theme="figl-theme"] .accordion-item.focus-card {
+  background: var(--figl-slate-bg-elev) !important;
+  border: 1px solid var(--figl-slate-border) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="figl-theme"] .focus-card::before,
+html[data-theme="figl-theme"] .card.focus-card::before,
+html[data-theme="figl-theme"] .accordion-item.focus-card::before {
+  background: linear-gradient(120deg, rgba(53, 155, 146, 0.08), transparent 72%);
+}
+
+html[data-theme="figl-theme"] .focus-card:hover,
+html[data-theme="figl-theme"] .card.focus-card:hover,
+html[data-theme="figl-theme"] .accordion-item.focus-card:hover,
+html[data-theme="figl-theme"] .me-config .me-step-card:hover {
+  border-color: rgba(53, 155, 146, 0.5) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="figl-theme"] .text-bg-primary,
+html[data-theme="figl-theme"] .bg-primary,
+html[data-theme="figl-theme"] .alert-primary,
+html[data-theme="figl-theme"] .bp-request-card__metric--copies,
+html[data-theme="figl-theme"] .bp-request-card__corp-pill,
+html[data-theme="figl-theme"] .bp-corporate-badge,
+html[data-theme="figl-theme"] .bp-request-empty__icon,
+html[data-theme="figl-theme"] .summary-card__icon,
+html[data-theme="figl-theme"] .bp-card-toolbar__collapse .input-group,
+html[data-theme="figl-theme"] .bp-scope-option.is-selected,
+html[data-theme="figl-theme"] .me-hub-banner,
+html[data-theme="figl-theme"] .stock-table th,
+html[data-theme="figl-theme"] .stock-table tbody tr.selected {
+  background-color: rgba(53, 155, 146, 0.16) !important;
+  border-color: rgba(53, 155, 146, 0.55) !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .text-bg-info,
+html[data-theme="figl-theme"] .bg-info,
+html[data-theme="figl-theme"] .alert-info,
+html[data-theme="figl-theme"] .bp-request-card__metric--te,
+html[data-theme="figl-theme"] .order-summary-icon,
+html[data-theme="figl-theme"] .info-box,
+html[data-theme="figl-theme"] .contract-instructions,
+html[data-theme="figl-theme"] .order-notes-card.order-notes-neutral,
+html[data-theme="figl-theme"] .buy-order-detail .order-reference-display,
+html[data-theme="figl-theme"] .me-info-bar {
+  background-color: rgba(74, 134, 199, 0.16) !important;
+  border-color: rgba(74, 134, 199, 0.55) !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .text-bg-success,
+html[data-theme="figl-theme"] .bg-success,
+html[data-theme="figl-theme"] .alert-success,
+html[data-theme="figl-theme"] .bp-request-card__metric--me,
+html[data-theme="figl-theme"] .order-notes-card.order-notes-success {
+  background-color: rgba(53, 145, 102, 0.16) !important;
+  border-color: rgba(53, 145, 102, 0.55) !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .text-bg-warning,
+html[data-theme="figl-theme"] .bg-warning,
+html[data-theme="figl-theme"] .alert-warning,
+html[data-theme="figl-theme"] .bp-request-card__metric--runs,
+html[data-theme="figl-theme"] .sell-order-detail .order-reference-display,
+html[data-theme="figl-theme"] .order-notes-card.order-notes-alert {
+  background-color: rgba(171, 126, 32, 0.16) !important;
+  border-color: rgba(171, 126, 32, 0.55) !important;
+  color: #f3dfba !important;
+}
+
+html[data-theme="figl-theme"] .text-bg-danger,
+html[data-theme="figl-theme"] .bg-danger,
+html[data-theme="figl-theme"] .alert-danger {
+  background-color: rgba(201, 68, 63, 0.16) !important;
+  border-color: rgba(201, 68, 63, 0.55) !important;
+  color: #f2c7c5 !important;
+}
+
+html[data-theme="figl-theme"] .bp-request-card__access-item,
+html[data-theme="figl-theme"] .runs-badge,
+html[data-theme="figl-theme"] .me-config .me-step-badge,
+html[data-theme="figl-theme"] .me-config .me-step-badge.bg-secondary,
+html[data-theme="figl-theme"] .me-config .me-pill-info,
+html[data-theme="figl-theme"] .me-config .me-pill-success {
+  background-color: #2b3746 !important;
+  border-color: rgba(47, 61, 77, 0.95) !important;
+  color: #e7edf4 !important;
+}
+
+html[data-theme="figl-theme"] .blueprint-meta .btn-outline-info.btn-sm,
+html[data-theme="figl-theme"] .btn.btn-outline-info.btn-sm {
+  background-color: rgba(74, 134, 199, 0.16) !important;
+  border-color: rgba(74, 134, 199, 0.45) !important;
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .btn.btn-outline-info.btn-sm:hover,
+html[data-theme="figl-theme"] .btn.btn-outline-info.btn-sm:focus {
+  background-color: rgba(74, 134, 199, 0.24) !important;
+  border-color: rgba(74, 134, 199, 0.6) !important;
+}
+
+html[data-theme="figl-theme"] .bp-card-toolbar__timestamp {
+  color: var(--figl-teal) !important;
+}
+
+html[data-theme="figl-theme"] .me-hub-banner-label,
+html[data-theme="figl-theme"] .status-pending {
+  color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] .stock-table tbody tr:hover,
+html[data-theme="figl-theme"] .me-config .me-dual-list-select option:hover {
+  background-color: rgba(53, 155, 146, 0.09) !important;
+}
+
+html[data-theme="figl-theme"] .me-config {
+  --me-bg: linear-gradient(180deg, #161c24 0%, #0f1318 100%);
+  --me-card-bg: var(--figl-slate-bg-elev);
+  --me-card-bg-strong: var(--figl-slate-bg-soft);
+  --me-border: rgba(47, 61, 77, 0.7);
+  --me-border-strong: rgba(53, 155, 146, 0.35);
+  --me-shadow: none;
+}
+
+html[data-theme="figl-theme"] .me-config .card.focus-card {
+  background: var(--figl-slate-bg-elev) !important;
+  border-color: var(--figl-slate-border) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version,
+html[data-theme="figl-theme"] #aa-dashboard-panel-task-queue {
+  min-width: 0;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .list-group-horizontal {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  margin-bottom: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .list-group-horizontal > .list-group-item {
+  border-radius: 0.375rem;
+  border-left-width: 1px !important;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  width: auto !important;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .btn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 1rem 0.85rem;
+  text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  width: 100%;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .list-group-item-heading,
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .list-group-item-text {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .text-bg-success,
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .text-bg-info,
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .text-bg-warning,
+html[data-theme="figl-theme"] #aa-dashboard-panel-software-version .text-bg-danger {
+  background-clip: padding-box;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group {
+  border: 1px solid var(--figl-slate-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group-item {
+  align-items: center;
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group-item:first-child {
+  border-top: 0;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group-item:last-child {
+  border-bottom: 0;
+}
+
+html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group-item .badge,
+html[data-theme="figl-theme"] .navbar .navbar-brand[data-bs-toggle] .badge {
+  background-color: #359b92 !important;
+  border: 1px solid rgba(230, 246, 244, 0.22);
+  box-shadow: 0 0 0 1px rgba(15, 19, 24, 0.35);
+  color: #ffffff !important;
+  font-weight: 700;
 }
