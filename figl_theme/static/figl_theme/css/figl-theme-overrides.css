@@ -4359,11 +4359,44 @@ html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-grou
   border-bottom: 0;
 }
 
-html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group-item .badge,
-html[data-theme="figl-theme"] .navbar .navbar-brand[data-bs-toggle] .badge {
+html[data-theme="figl-theme"] #aa-dashboard-panel-admin-notifications .list-group-item .badge {
   background-color: #359b92 !important;
   border: 1px solid rgba(230, 246, 244, 0.22);
   box-shadow: 0 0 0 1px rgba(15, 19, 24, 0.35);
   color: #ffffff !important;
   font-weight: 700;
+}
+
+html[data-theme="figl-theme"] .navbar .navbar-brand[data-bs-toggle] .badge {
+  background-color: #c9443f !important;
+  border: 1px solid rgba(255, 225, 223, 0.35);
+  box-shadow: 0 0 0 1px rgba(15, 19, 24, 0.45), 0 0 10px rgba(201, 68, 63, 0.3);
+  color: #ffffff !important;
+  font-weight: 700;
+  left: auto;
+  right: 0;
+  top: 0;
+  transform: translate(35%, -35%);
+}
+
+/* Keep sidebar menu badges on the same row as their labels. */
+html[data-theme="figl-theme"] #sidebar-menu > li,
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li {
+  align-items: center;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu > li > a.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li > a.nav-link {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu > li > .badge.text-bg-primary,
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li > .badge.text-bg-primary,
+html[data-theme="figl-theme"] #sidebar-menu > li > .pill,
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li > .pill {
+  flex-shrink: 0;
 }
