@@ -3723,7 +3723,7 @@ html[data-theme="figl-theme"] .slot-overview-table .table-light,
 html[data-theme="figl-theme"] .slot-overview-table tr.table-light,
 html[data-theme="figl-theme"] .slot-overview-table tr.table-light td {
   background: rgba(55, 65, 81, 0.85) !important;
-  color: var(--bs-body-color) !important;
+  color: rgba(var(--bs-light-rgb), 0.85) !important;
   border-color: rgba(148, 163, 184, 0.24) !important;
 }
 
