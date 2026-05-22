@@ -291,6 +291,36 @@ html[data-theme="figl-theme"] .table {
   --bs-table-border-color: rgba(47, 61, 77, 0.7);
 }
 
+html[data-theme="figl-theme"] .table-light {
+  --bs-table-color: #d9e2ec;
+  --bs-table-color-type: #d9e2ec;
+  --bs-table-bg: rgba(55, 65, 81, 0.85);
+  --bs-table-bg-type: rgba(55, 65, 81, 0.85);
+  --bs-table-border-color: rgba(148, 163, 184, 0.24);
+  --bs-table-striped-color: #e9eef5;
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+  --bs-table-active-color: #ffffff;
+  --bs-table-active-bg: rgba(53, 155, 146, 0.16);
+  --bs-table-hover-color: #ffffff;
+  --bs-table-hover-bg: rgba(53, 155, 146, 0.12);
+  color: var(--bs-table-color) !important;
+}
+
+html[data-theme="figl-theme"] .table-dark {
+  --bs-table-color: #f3f6fa;
+  --bs-table-color-type: #f3f6fa;
+  --bs-table-bg: rgba(15, 19, 24, 0.92);
+  --bs-table-bg-type: rgba(15, 19, 24, 0.92);
+  --bs-table-border-color: rgba(47, 61, 77, 0.9);
+  --bs-table-striped-color: #f8fbff;
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.04);
+  --bs-table-active-color: #ffffff;
+  --bs-table-active-bg: rgba(53, 155, 146, 0.18);
+  --bs-table-hover-color: #ffffff;
+  --bs-table-hover-bg: rgba(53, 155, 146, 0.12);
+  color: var(--bs-table-color) !important;
+}
+
 html[data-theme="figl-theme"] .table > :not(caption) > * > * {
   background-color: transparent;
 }
