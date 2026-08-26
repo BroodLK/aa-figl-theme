@@ -469,6 +469,30 @@ html[data-theme="figl-theme"] .figl-info-links a:focus {
   border-color: rgba(53, 155, 146, 0.6);
 }
 
+html[data-theme="figl-theme"] .figl-support-link {
+  background: linear-gradient(135deg, #ff5f8f, #ff7a59);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.73rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.3rem 0.7rem;
+  position: absolute;
+  right: 1rem;
+  text-decoration: none;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+html[data-theme="figl-theme"] .figl-support-link:hover,
+html[data-theme="figl-theme"] .figl-support-link:focus {
+  background: linear-gradient(135deg, #ff7a9f, #ff9276);
+  color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.14);
+}
+
 html[data-theme="figl-theme"] #sidebar > div {
   background-color: #10161e;
   border-right: 1px solid #526171;
