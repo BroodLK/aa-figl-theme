@@ -15,13 +15,23 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo "  build_test              Build the package"
+	@echo "  compile_translations    Compile translation files"
 	@echo "  coverage                Run tests and create a coverage report"
 	@echo "  graph_models            Create a graph of the models"
+	@echo "  migrations              Create migrations"
 	@echo "  pre-commit-checks       Run pre-commit checks"
 	@echo "  tox_tests               Run tests with tox"
 	@echo "  translations            Create or update translation files"
-	@echo "  compile_translations    Compile translation files"
 	@echo ""
+
+# Migrations
+.PHONY: migrations
+migrations:
+	@echo "Creating migrations"
+	@python ../myauth/manage.py makemigrations $(package)
+
+.PHONY: makemigrations
+makemigrations: migrations
 
 # Translation files
 .PHONY: translations

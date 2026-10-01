@@ -3,6 +3,7 @@
 {% load navactive %}
 {% load auth_notifications %}
 {% load theme_tags %}
+{% load figl_theme_tags %}
 <!DOCTYPE html>
 <html lang="en" {% theme_html_tags %}>
     <head>
@@ -27,6 +28,7 @@
         {% include 'bundles/jquery-js.html' %}
         {% include 'bundles/auth-framework-js.html' %}
 
+        {% figl_bg_image_url as auth_bg_image %}
         <style>
             @media all {
                 .nav-padding {
@@ -34,6 +36,18 @@
                     max-height: calc(100vh - {% header_padding_size %}) !important;
                 }
             }
+            {% if auth_bg_image %}
+            html[data-theme="figl-theme"] body {
+                background-image:
+                    radial-gradient(circle at center, rgba(9, 10, 15, 0.45) 0%, rgba(9, 10, 15, 0.88) 100%),
+                    linear-gradient(180deg, rgba(9, 10, 15, 0.55) 0%, rgba(9, 10, 15, 0.85) 100%),
+                    url('{{ auth_bg_image }}') !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                background-attachment: fixed !important;
+                background-repeat: no-repeat !important;
+            }
+            {% endif %}
         </style>
 
         {% block extra_css %}{% endblock extra_css %}
@@ -42,43 +56,32 @@
         {% include 'custom_css/bundles/custom-css.html' %}
     </head>
 
-    <body>
+    <body{% if auth_bg_image %} class="has-figl-bg" style="--figl-bg-image: url('{{ auth_bg_image }}');"{% endif %}>
         <!-- Top Menu, Blocks don't work in "include" tagged views -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-bg-primary figl-navbar p-0 flex-column">
+            {% figl_enable_eve_time as show_eve_time %}
+            {% figl_header_links as header_links %}
+            {% figl_dev_support_url as support_url %}
+            {% figl_dev_support_text as support_text %}
             <div class="figl-info-header w-100 d-flex align-items-center gap-4">
-                <div class="figl-info-clock">EVE TIME: <span id="figl-eve-time" class="figl-eve-time">--:--:-- GMT</span></div>
+                {% if show_eve_time %}
+                    <div class="figl-info-clock">EVE TIME: <span id="figl-eve-time" class="figl-eve-time">--:--:-- GMT</span></div>
+                {% endif %}
                 <div class="figl-info-links">
-                    <a href="https://zkillboard.com/alliance/99009902/" target="_blank" rel="noopener noreferrer">KillBoard</a>
-                    <a
-                        href="https://evemaps.dotlan.net/alliance/Flying%20Dangerous"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Dotlan
-                    </a>
-                    <a
-                        href="https://flying-dangerous-shop.fourthwall.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Merch Store
-                    </a>
-                    <a
-                        href="https://wiki.figl.us/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Wiki
-                    </a>
+                    {% for link in header_links %}
+                        <a href="{{ link.url }}" target="{{ link.target|default:'_blank' }}" rel="noopener noreferrer">{{ link.label }}</a>
+                    {% endfor %}
                 </div>
-                <a
-                    class="figl-support-link"
-                    href="https://ko-fi.com/biobrute"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Support the Dev
-                </a>
+                {% if support_url %}
+                    <a
+                        class="figl-support-link"
+                        href="{{ support_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {{ support_text }}
+                    </a>
+                {% endif %}
             </div>
             <div class="container-fluid justify-content-start py-1">
                 <a class="navbar-brand" data-bs-toggle="collapse" data-bs-target="#sidebar" role="button">
@@ -146,7 +149,7 @@
             <script>
                 const notificationUpdateSettings = {
                     refreshTime: "{% notifications_refresh_time %}",
-                    userNotificationsCountViewUrl: "{% url 'notifications:user_notifications_count' %}"
+                    userNotificationsCountViewUrl: "{% figl_notifications_count_url %}"
                 };
             </script>
 
@@ -163,15 +166,48 @@
                     return;
                 }
 
+                const eveTimeFormatter = new Intl.DateTimeFormat("en-GB", {
+                    timeZone: "UTC",
+                    hour12: false,
+                    weekday: "short",
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                });
+
                 function updateEveTime() {
                     const now = new Date();
-                    const utcString = now.toUTCString().split(" ")[4];
-                    const dateString = now.toUTCString().slice(0, 16);
-                    clock.innerText = `${dateString} ${utcString} GMT`;
+                    clock.textContent = `${eveTimeFormatter.format(now)} GMT`;
                 }
 
-                updateEveTime();
-                setInterval(updateEveTime, 1000);
+                let timerId = null;
+
+                function startClock() {
+                    if (timerId === null) {
+                        updateEveTime();
+                        timerId = setInterval(updateEveTime, 1000);
+                    }
+                }
+
+                function stopClock() {
+                    if (timerId !== null) {
+                        clearInterval(timerId);
+                        timerId = null;
+                    }
+                }
+
+                document.addEventListener("visibilitychange", function () {
+                    if (document.hidden) {
+                        stopClock();
+                    } else {
+                        startClock();
+                    }
+                });
+
+                startClock();
             })();
 
             {% block extra_script %}

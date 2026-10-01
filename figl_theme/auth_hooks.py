@@ -8,6 +8,7 @@ from allianceauth.theme.hooks import ThemeHook
 # AA Figl Theme
 from figl_theme import urls
 
+
 @hooks.register("url_hook")
 def register_urls():
     """Register app urls"""

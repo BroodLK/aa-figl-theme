@@ -8,11 +8,34 @@ Test settings
 # local.py settings
 # Every setting in base.py can be overloaded by redefining it here.
 
+# Alliance Auth
+from allianceauth.utils import cache as allianceauth_cache
+
 from .base import *
 
 PACKAGE = "figl_theme"
 DEFAULT_THEME = "figl_theme.auth_hooks.FiglThemeHook"
 DEFAULT_THEME_DARK = DEFAULT_THEME
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "figl-theme-test-cache",
+    }
+}
+
+
+class _TestRedisClient:
+    def ping(self):
+        return False
+
+    def info(self):
+        return {"redis_version": "7.0.0"}
+
+
+allianceauth_cache.get_redis_client = lambda: _TestRedisClient()
+
+BROKER_URL = "memory://"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
