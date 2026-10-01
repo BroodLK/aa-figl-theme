@@ -198,6 +198,8 @@ class TestFiglTheme(TestCase):
         self.assertIn(".progress-bar", css_content)
         self.assertIn("--figl-teal: #229388", css_content)
         self.assertIn("#sidebar-menu .badge", css_content)
+        self.assertIn("#sidebar-menu span.pill", css_content)
+        self.assertIn("#sidebar-menu .collapse", css_content)
         self.assertIn(".navbar .navbar-brand[data-bs-toggle] .badge", css_content)
 
         # Login Screen & Video Background styling

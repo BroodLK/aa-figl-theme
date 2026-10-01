@@ -904,16 +904,19 @@ html[data-theme="figl-theme"] .nav-padding.col {
     padding-top: 1rem;
 }
 
+html[data-theme="figl-theme"] #sidebar-menu li,
 html[data-theme="figl-theme"] #sidebar-menu > li,
 html[data-theme="figl-theme"] #sidebar-menu .collapse > li {
     background: transparent;
     border-left: 3px solid transparent;
     border-radius: 6px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    margin: 2px 6px !important;
-    padding: 0.35rem 0.65rem !important;
-    transition: all 0.15s ease;
+    margin: 2px 8px !important;
+    padding: 0.35rem 0.6rem !important;
+    position: relative;
+    transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 html[data-theme="figl-theme"] #sidebar-menu > li:hover,
@@ -921,14 +924,19 @@ html[data-theme="figl-theme"] #sidebar-menu .collapse > li:hover {
     background: var(--figl-slate-bg-elev);
 }
 
-html[data-theme="figl-theme"] #sidebar-menu > li:has(a.active),
-html[data-theme="figl-theme"] #sidebar-menu > li:has(i.active),
-html[data-theme="figl-theme"] #sidebar-menu .collapse > li:has(a.active) {
+html[data-theme="figl-theme"] #sidebar-menu > li:not(:has(> .collapse)):has(> a.active),
+html[data-theme="figl-theme"] #sidebar-menu > li:not(:has(> .collapse)):has(> i.active),
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li:has(> a.active),
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li:has(> i.active) {
     background: var(--figl-slate-bg-elev) !important;
     border-left: 3px solid var(--figl-teal) !important;
 }
 
-html[data-theme="figl-theme"] #sidebar-menu .nav-link {
+html[data-theme="figl-theme"] #sidebar-menu .nav-link,
+html[data-theme="figl-theme"] #sidebar-menu a.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu i.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu a.nav-link.active,
+html[data-theme="figl-theme"] #sidebar-menu i.nav-link.active {
     background: transparent !important;
     border: none !important;
     border-left: none !important;
@@ -947,10 +955,15 @@ html[data-theme="figl-theme"] #sidebar-menu i.nav-link {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 1.25rem;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
     padding: 0 !important;
     margin: 0 !important;
-    flex-shrink: 0;
+    margin-right: 0.5rem !important;
+    flex: 0 0 1.25rem !important;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.15s ease;
 }
 
 html[data-theme="figl-theme"] #sidebar-menu a.nav-link {
@@ -963,20 +976,25 @@ html[data-theme="figl-theme"] #sidebar-menu a.nav-link {
     display: block;
     font-size: 0.85rem;
     font-weight: 500;
-    padding: 0.2rem 0 !important;
-    margin: 0 0 0 0.65rem !important;
+    line-height: 1.4;
+    padding: 0 !important;
+    margin: 0 !important;
     text-decoration: none;
-    flex: 1 1 0;
-    min-width: 0;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    transition: color 0.15s ease;
 }
 
-html[data-theme="figl-theme"] #sidebar-menu li:hover i.nav-link,
-html[data-theme="figl-theme"] #sidebar-menu li:hover a.nav-link {
+html[data-theme="figl-theme"] #sidebar-menu li:hover > i.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu li:hover > a.nav-link {
     color: var(--figl-slate-text);
 }
 
-html[data-theme="figl-theme"] #sidebar-menu li:has(a.active) i.nav-link,
-html[data-theme="figl-theme"] #sidebar-menu li:has(a.active) a.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu li:has(> a.active) > i.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu li:has(> a.active) > a.nav-link,
 html[data-theme="figl-theme"] #sidebar-menu a.nav-link.active,
 html[data-theme="figl-theme"] #sidebar-menu i.nav-link.active {
     color: #ffffff !important;
@@ -1004,14 +1022,13 @@ html[data-theme="figl-theme"] #aa-user-info img.position-absolute {
     border: 1px solid var(--figl-slate-bg-base);
 }
 
-html[data-theme="figl-theme"] #sidebar-menu .badge,
-html[data-theme="figl-theme"] #sidebar-menu .pill {
-    flex: 0 0 auto;
+html[data-theme="figl-theme"] #sidebar-menu .badge {
+    flex: 0 0 auto !important;
     font-size: 0.7rem;
     font-weight: 600;
     line-height: 1;
-    margin-left: auto;
-    padding: 0.2rem 0.48rem;
+    margin: 0 0 0 auto !important;
+    padding: 0.2rem 0.45rem !important;
     text-align: center;
     border-radius: 9999px;
     font-variant-numeric: tabular-nums;
@@ -1054,15 +1071,79 @@ html[data-theme="figl-theme"] #sidebar-menu .badge.bg-success {
 }
 
 html[data-theme="figl-theme"] #sidebar-menu .badge.text-bg-secondary,
-html[data-theme="figl-theme"] #sidebar-menu .badge.bg-secondary,
-html[data-theme="figl-theme"] #sidebar-menu .pill {
+html[data-theme="figl-theme"] #sidebar-menu .badge.bg-secondary {
     background-color: var(--figl-slate-bg-soft) !important;
     border: 1px solid var(--figl-slate-border) !important;
     color: var(--figl-slate-muted) !important;
 }
 
-html[data-theme="figl-theme"] #sidebar-menu .collapse {
-    margin-left: 1.5rem;
+html[data-theme="figl-theme"] #sidebar-menu span.pill,
+html[data-theme="figl-theme"] #sidebar-menu .pill {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--figl-slate-dim) !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto !important;
+    font-size: 0.72rem;
+    margin: 0 0 0 0.35rem !important;
+    padding: 0 !important;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu span.pill:hover,
+html[data-theme="figl-theme"] #sidebar-menu li:hover > span.pill {
+    color: var(--figl-slate-text) !important;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu span.pill.fa-external-link-alt,
+html[data-theme="figl-theme"] #sidebar-menu span.pill.fas {
+    font-size: 0.68rem;
+    margin-left: auto !important;
+    color: var(--figl-slate-dim) !important;
+    opacity: 0.75;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu li:hover > span.pill.fa-external-link-alt,
+html[data-theme="figl-theme"] #sidebar-menu li:hover > span.pill.fas {
+    color: var(--figl-teal-bright) !important;
+    opacity: 1;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu .collapse,
+html[data-theme="figl-theme"] #sidebar-menu ul.collapse {
+    border-left: 1px solid var(--figl-slate-border) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    flex: 0 0 100% !important;
+    list-style: none;
+    margin: 0.25rem 0 0.15rem 0.6rem !important;
+    padding: 0.15rem 0 0.15rem 0.4rem !important;
+    width: calc(100% - 0.6rem) !important;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li {
+    border-radius: 5px;
+    border-left: 2px solid transparent;
+    margin: 1px 0 !important;
+    padding: 0.28rem 0.45rem !important;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li > a.nav-link {
+    font-size: 0.82rem;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li > i.nav-link {
+    font-size: 0.82rem;
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+    flex: 0 0 1.1rem !important;
+    margin-right: 0.45rem !important;
 }
 
 html[data-theme="figl-theme"] .dropdown-item:hover,

@@ -54,7 +54,7 @@ jobs:
   # Run Test Coverage
   test-coverage:
     needs: [ pre-commit ]
-    name: AA Latest (Python ${{ matrix.python-version }} with ${{ matrix.database }})
+    name: AA Latest (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
 
     strategy:

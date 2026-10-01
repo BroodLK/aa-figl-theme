@@ -5075,7 +5075,7 @@ html[data-theme="figl-theme"] .navbar .navbar-brand[data-bs-toggle] .badge {
     font-feature-settings: "tnum";
 }
 
-/* Keep sidebar menu badges on the same row as their labels. */
+/* Keep sidebar menu badges, toggle icons, and labels on the same row. */
 
 html[data-theme="figl-theme"] #sidebar-menu > li,
 html[data-theme="figl-theme"] #sidebar-menu .collapse > li {
@@ -5084,16 +5084,37 @@ html[data-theme="figl-theme"] #sidebar-menu .collapse > li {
 
 html[data-theme="figl-theme"] #sidebar-menu > li > a.nav-link,
 html[data-theme="figl-theme"] #sidebar-menu .collapse > li > a.nav-link {
-    flex: 1 1 0;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    box-shadow: none !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu a.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu i.nav-link,
+html[data-theme="figl-theme"] #sidebar-menu a.nav-link.active,
+html[data-theme="figl-theme"] #sidebar-menu i.nav-link.active {
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    box-shadow: none !important;
 }
 
 html[data-theme="figl-theme"] #sidebar-menu > li > .badge,
-html[data-theme="figl-theme"] #sidebar-menu .collapse > li > .badge,
-html[data-theme="figl-theme"] #sidebar-menu > li > .pill,
-html[data-theme="figl-theme"] #sidebar-menu .collapse > li > .pill {
-    flex-shrink: 0;
+html[data-theme="figl-theme"] #sidebar-menu .collapse > li > .badge {
+    flex-shrink: 0 !important;
+}
+
+html[data-theme="figl-theme"] #sidebar-menu span.pill,
+html[data-theme="figl-theme"] #sidebar-menu .pill {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--figl-slate-dim) !important;
+    flex-shrink: 0 !important;
 }
